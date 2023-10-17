@@ -1,7 +1,10 @@
 {
-  "name": "playground-server",
+  "name": "dev-server",
   "module": "src/index.ts",
   "type": "module",
+  "scripts": {
+    "start": "bun run src/index.ts"
+  },
   "devDependencies": {
     "bun-types": "latest"
   },
