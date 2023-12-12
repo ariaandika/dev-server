@@ -10,6 +10,17 @@ const server = Bun.serve({
           version: (await Bun.file('package.json').json()).version }
       ))
     }
+      
+    if (u.pathname.startsWith('/log')) {
+      return Response.json(Object.fromEntries(Object.entries(req.headers.entries())),{
+        headers: { "access-control-allow-origin": "*" }
+      })
+    }
+
+    if (u.pathname == '/test') {
+      return fetch('http://localhost:3333/api/v1/blog/get/oof')
+    }
+
     return new Response(Bun.file('src/index.html'))
   }
 })
